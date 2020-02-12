@@ -49,24 +49,26 @@ class TicTacToe
   end
   
   def turn
-  puts 'Please enter 1-9:'
-  user_input = gets.strip
-  index = input_to_index(user_input)
-  if valid_move?(index)
-    move(index, current_player)
-    display_board
-  else
-    turn
+    puts 'Please enter 1-9:'
+    user_input = gets.strip
+    index = input_to_index(user_input)
+    if valid_move?(index)
+      move(index, current_player)
+      display_board
+    else
+      turn
+    end
   end
-end
   
   def won?
     WIN_COMBINATIONS.detect do |combo|
     @board[combo[0]] == @board[combo[1]] &&
       @board[combo[1]] == @board[combo[2]] &&
       position_taken?(combo[0])
+    end
   end
-end
+  
+  
   
   
 end
